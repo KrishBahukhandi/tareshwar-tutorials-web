@@ -1175,8 +1175,42 @@
       if (!valid) ok = false;
     });
     if (ok) {
-      form.classList.add('sent');
-      form.scrollIntoView({ behavior: 'instant', block: 'nearest' });
+      const FORMSPREE_ID = 'mnjweewr';
+      const data = new FormData(form);
+      const submitBtn = form.querySelector('[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      })
+      .then(res => {
+        if (!res.ok) throw new Error('Network error');
+        // Show success state
+        form.classList.add('sent');
+        form.scrollIntoView({ behavior: 'instant', block: 'nearest' });
+
+        // Open WhatsApp with pre-filled message
+        const name    = form.querySelector('#parent').value.trim();
+        const phone   = form.querySelector('#phone').value.trim();
+        const grade   = form.querySelector('#grade').value.trim();
+        const subject = form.querySelector('#subject').value.trim();
+        const message = form.querySelector('#message').value.trim();
+        const text = encodeURIComponent(
+          `New enquiry from Tareshwar Tutorials website!\n\n` +
+          `Name: ${name}\nPhone: ${phone}\nClass: ${grade}` +
+          (subject ? `\nSubject: ${subject}` : '') +
+          (message ? `\nMessage: ${message}` : '')
+        );
+        window.open(`https://wa.me/916280554348?text=${text}`, '_blank');
+      })
+      .catch(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send enquiry →';
+        alert('Something went wrong. Please call us directly at +91 62805 54348.');
+      });
     }
   });
   form?.querySelectorAll('input,select,textarea').forEach(el => {
