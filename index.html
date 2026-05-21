@@ -251,6 +251,21 @@
     font-size: 13.5px; color: var(--ink-3);
   }
   .course-card .meta b { color: var(--ink); font-weight: 600 }
+  .price-table {
+    width: 100%; display: flex; flex-direction: column; gap: 6px;
+    border-top: 1px dashed var(--rule); padding-top: 14px; margin-top: auto;
+  }
+  .price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13.5px; color: var(--ink-3);
+    padding: 5px 8px; border-radius: 6px;
+  }
+  .price-row b { color: var(--ink); font-weight: 600; font-size: 14px; }
+  .price-highlight {
+    background: rgba(184,92,60,.07);
+    color: var(--ink-2);
+  }
+  .price-highlight b { color: var(--accent); }
   .course-card .glyph {
     position: absolute; right: -10px; top: -10px; width: 110px; height: 110px;
     color: var(--accent); opacity: .06; pointer-events: none;
@@ -720,7 +735,10 @@
         <h3>Classes I – V</h3>
         <p>Reading fluency, mental maths, EVS — playful, story-led, and never rushed.</p>
         <div class="subjects"><span>English</span><span>Hindi</span><span>Maths</span><span>EVS</span></div>
-        <div class="meta"><span>Mon – Fri · <b>4:00 – 5:00 PM</b></span><span><b>₹1,200</b> / mo</span></div>
+        <div class="meta"><span>Mon – Fri · <b>4:00 – 5:00 PM</b></span></div>
+        <div class="price-table">
+          <div class="price-row"><span>Class I – V</span><span><b>₹1,200</b> / mo</span></div>
+        </div>
       </article>
 
       <article class="course-card">
@@ -729,7 +747,12 @@
         <h3>Classes VI – VIII</h3>
         <p>The years where habits stick. We build a study system the child can carry forward into board years.</p>
         <div class="subjects"><span>Maths</span><span>Science</span><span>Social</span><span>English</span></div>
-        <div class="meta"><span>Mon – Sat · <b>5:00 – 6:30 PM</b></span><span>VI <b>₹1,400</b> · VII <b>₹1,500</b> · VIII <b>₹1,600</b> / mo</span></div>
+        <div class="meta"><span>Mon – Sat · <b>5:00 – 6:30 PM</b></span></div>
+        <div class="price-table">
+          <div class="price-row"><span>Class VI</span><span><b>₹1,400</b> / mo</span></div>
+          <div class="price-row"><span>Class VII</span><span><b>₹1,500</b> / mo</span></div>
+          <div class="price-row"><span>Class VIII</span><span><b>₹1,600</b> / mo</span></div>
+        </div>
       </article>
 
       <article class="course-card">
@@ -738,9 +761,12 @@
         <h3>Classes IX – X</h3>
         <p>CBSE-aligned with weekly chapter tests, a focus on numericals, and dedicated revision before pre-boards.</p>
         <div class="subjects"><span>Maths</span><span>Science</span><span>SST</span><span>English</span></div>
-        <div class="meta" style="flex-direction:column;align-items:flex-start;gap:4px;">
-          <span>Mon – Sat · <b>6:30 – 8:30 PM</b></span>
-          <span>IX — <b>₹1,000</b>/subject · <b>₹2,500</b> all 3 &nbsp;|&nbsp; X — <b>₹1,200</b>/subject · <b>₹3,000</b> all 3</span>
+        <div class="meta"><span>Mon – Sat · <b>6:30 – 8:30 PM</b></span></div>
+        <div class="price-table">
+          <div class="price-row"><span>Class IX · per subject</span><span><b>₹1,000</b> / mo</span></div>
+          <div class="price-row price-highlight"><span>Class IX · all 3 subjects</span><span><b>₹2,500</b> / mo</span></div>
+          <div class="price-row"><span>Class X · per subject</span><span><b>₹1,200</b> / mo</span></div>
+          <div class="price-row price-highlight"><span>Class X · all 3 subjects</span><span><b>₹3,000</b> / mo</span></div>
         </div>
       </article>
 
@@ -750,19 +776,11 @@
         <h3>Classes XI – XII</h3>
         <p>Biology &amp; Chemistry taught by subject specialists — depth-first, with NEET-style problem sets woven in.</p>
         <div class="subjects"><span>Biology</span><span>Chemistry</span><span>Maths*</span></div>
-        <div class="meta" style="flex-direction:column;align-items:flex-start;gap:4px;">
-          <span>Mon – Sat · <b>7:00 – 9:00 PM</b></span>
-          <span>PCB package <b>₹5,000</b> / mo &nbsp;·&nbsp; Single subject <b>₹2,000</b> / mo</span>
+        <div class="meta"><span>Mon – Sat · <b>7:00 – 9:00 PM</b></span></div>
+        <div class="price-table">
+          <div class="price-row price-highlight"><span>PCB Package</span><span><b>₹5,000</b> / mo</span></div>
+          <div class="price-row"><span>Single subject</span><span><b>₹2,000</b> / mo</span></div>
         </div>
-      </article>
-
-<article class="course-card">
-        <svg class="glyph" viewBox="0 0 120 120" fill="currentColor"><rect x="30" y="40" width="60" height="50" rx="4"/><rect x="45" y="20" width="30" height="25" rx="3"/></svg>
-        <span class="badge">Summer</span>
-        <h3>Summer Catch-up</h3>
-        <p>May–June bridge classes for students who switched schools or need a head-start on next year's syllabus.</p>
-        <div class="subjects"><span>Any subject</span><span>Custom plan</span></div>
-        <div class="meta"><span>6 weeks · <b>Flexible</b></span><span><b>₹2,000</b> total</span></div>
       </article>
     </div>
   </div>
@@ -925,15 +943,6 @@
         <div class="cell empty">Doubt class (by appt.)</div>
       </div>
 
-      <div class="tt-row">
-        <div class="time">11:00 – 12:00</div>
-        <div class="cell empty">—</div>
-        <div class="cell empty">—</div>
-        <div class="cell empty">—</div>
-        <div class="cell empty">—</div>
-        <div class="cell empty">—</div>
-        <div class="cell alt"><b>Spoken English</b><span>All ages</span></div>
-      </div>
     </div>
 
     <div class="schedule-foot">
